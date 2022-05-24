@@ -1,5 +1,7 @@
 // let test = [1,22,-3,7,6,51]
 // let otherTest = [4,-8,-100,70,400]
+// let yetAnotherTest = 'taco';
+// let everAnotherTest = [4,5,11,2,'taco', -9];
 
 let insertionSort = function(array) {
   // I - array of numbers
@@ -10,11 +12,11 @@ let insertionSort = function(array) {
   //   - The input might not be of the array type.
 
   // test if the input is an array.  Throw an error if it is not.
-  if (!Array.isArray(array)) throw ("The input was ont an array.");
+  if (!Array.isArray(array)) throw ("The input was not an array.");
 
   // loop through the values in the array.  If a non-numerical value is found, throw an error
   for (let el of array) {
-    if (Number.isNan(el)) throw ("Not all elements are numbers");
+    if (typeof el !== "number") throw ("Not all elements are numbers");
   }
 
   // test the length of the array. If it is zero or one, return the array as-is
@@ -32,10 +34,11 @@ let insertionSort = function(array) {
       for (let j = 1; j < array.length; j++) {
         let counter = j;
         if (array[j] < array[i]) {
-          while (counter > 0 && array[counter] < array[counter-1]) {
+          while (counter >= 0 && array[counter] < array[counter-1]) {
             let temp = array[counter];
-            array[counter] = array[counter+1];
-            array[counter+1] = temp;
+            array[counter] = array[counter-1];
+            array[counter-1] = temp;
+            counter--;
           }
         }
       }
@@ -43,3 +46,8 @@ let insertionSort = function(array) {
     return array;
   }
 }
+
+// insertionSort(test);
+// insertionSort(otherTest);
+// insertionSort(yetAnotherTest);
+// insertionSort(everAnotherTest);
