@@ -1,7 +1,7 @@
-const test = [6, 3, 4, -11, 15, 4];
-const otherTest = [55, 63, 1034216, -1, 0, 8];
-const thirdTest = ['taco', 4, 5];
-const fourthTest = 'hamburger';
+let test = [6, 3, 4, -11, 15, 4];
+let otherTest = [55, 63, 1034216, -1, 0, 8];
+let thirdTest = ['taco', 4, 5];
+let fourthTest = 'hamburger';
 
 const bubbleSort = function(array) {
   // I - An array
@@ -28,14 +28,17 @@ const bubbleSort = function(array) {
   // Return the sorted array.
 
   for (let i = 0; i < array.length - 1; i++) {
-    let marker = i;
-    while (marker < array.length - 1) {
-      if (array[marker] > array[marker+1]) {
-        [array[marker], array[marker+1]] = [array[marker+1], array[marker]]
+    for (let j = 0; j < array.length - 1; j++) {
+      if (array[j] > array[j+1]) {
+        [array[j], array[j+1]] = [array[j+1], array[j]];
       }
-      marker++;
     }
   }
 
   return array;
 }
+
+bubbleSort(test);
+bubbleSort(otherTest);
+bubbleSort(thirdTest);
+bubbleSort(fourthTest);
