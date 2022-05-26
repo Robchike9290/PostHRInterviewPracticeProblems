@@ -84,15 +84,15 @@ describe("selectionSort", function(){
       expect(mergeSort([6])).toStrictEqual([6]);
     });
 
-    // it("Should sort an array of random whole numbers correctly.", function(){
-    //   expect(mergeSort([5, 66, 7, -4, -109, 88])).toStrictEqual([-109, -4, 5, 7, 66, 88]);
-    //   expect(mergeSort([10, 0, 0, 4, -3, 8])).toStrictEqual([-3, 0, 0, 4, 8, 10]);
-    // });
+    it("Should sort an array of random whole numbers correctly.", function(){
+      expect(mergeSort([5, 66, 7, -4, -109, 88])).toStrictEqual([-109, -4, 5, 7, 66, 88]);
+      expect(mergeSort([10, 0, 0, 4, -3, 8])).toStrictEqual([-3, 0, 0, 4, 8, 10]);
+    });
 
-    // it("Should sort an array of random non-whole numbers correctly.", function(){
-    //   expect(mergeSort([-2.4, -578, 8.2, 408, 7, 7.7])).toStrictEqual([-578, -2.4, 7, 7.7, 8.2, 408]);
-    //   expect(mergeSort([-8, 7.48, 38, 9, -50.38])).toStrictEqual([-50.38, -8, 7.48, 9, 38]);
-    // })
+    it("Should sort an array of random non-whole numbers correctly.", function(){
+      expect(mergeSort([-2.4, -578, 8.2, 408, 7, 7.7])).toStrictEqual([-578, -2.4, 7, 7.7, 8.2, 408]);
+      expect(mergeSort([-8, 7.48, 38, 9, -50.38])).toStrictEqual([-50.38, -8, 7.48, 9, 38]);
+    })
 
     it("Should throw an error if a non-numerical index is in the input array.", function(){
       expect(() => mergeSort([8, NaN, 'hammer', true])).toThrow('All of the indexes of the input array must be numbers');
