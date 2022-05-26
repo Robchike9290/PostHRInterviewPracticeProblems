@@ -25,5 +25,5 @@ jobs:
             ${{ runner.os }}-
       - name: Install dependencies
         run: npm install
-        name: Run Jest tests
+      - name: Run Jest tests
         run: npm run test
