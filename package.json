@@ -1,0 +1,22 @@
+{
+  "name": "posthrinterviewpracticeproblems",
+  "version": "1.0.0",
+  "description": "All my algorithmic challenges from the post-Hack Reactor job search, plus tests.",
+  "main": "tp.spec.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robchike9290/PostHRInterviewPracticeProblems.git"
+  },
+  "author": "Robert \"Bo\" Czajka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Robchike9290/PostHRInterviewPracticeProblems/issues"
+  },
+  "homepage": "https://github.com/Robchike9290/PostHRInterviewPracticeProblems#readme",
+  "dependencies": {
+    "jest": "^28.1.0"
+  }
+}

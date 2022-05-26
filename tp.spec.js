@@ -1,6 +1,5 @@
 const add = require("./exampleModule").add;
 const multiply = require("./exampleModule").multiply;
-const evenOccurrence = require("./evenOccurrence/evenOccurrence.js")
 
 /*
 A "describe" block can be used to group together multiple tests
