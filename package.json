@@ -2,9 +2,9 @@
   "name": "posthrinterviewpracticeproblems",
   "version": "1.0.0",
   "description": "All my algorithmic challenges from the post-Hack Reactor job search, plus tests.",
-  "main": "tp.spec.js",
+  "main": "tp.specs.js",
   "scripts": {
-    "test": "test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",

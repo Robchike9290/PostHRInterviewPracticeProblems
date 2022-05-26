@@ -1,5 +1,6 @@
 const add = require("./exampleModule").add;
 const multiply = require("./exampleModule").multiply;
+const bubbleSort = require("./bubbleSort");
 
 /*
 A "describe" block can be used to group together multiple tests
@@ -22,20 +23,22 @@ describe("Example tests", function(){
   });
 });
 
-/*
-You start here. 1 describe block per toy problem.
-Notice the method "only" above. Because it is there, the describe block below won't run.
-You'll need to remove the "only" from the block above. You can use that method to only run tests
-on the toy problem you're currently working on. https://jestjs.io/docs/en/api#describeonlyname-fn
-*/
-describe("Replace this with the name of toy problem", function(){
-  test("Replace this with the desired behaviour", function(){
-
-    // It's possible to have multiple expects in a single test like this. However, it is often unhelpful.
-    // Just write two tests referring to the "Example Suites" example above for reference.
-    expect(add(1,0)).toBe(0);
-    expect(multiply(1,1)).toBe(1);
+describe("bubbleSort", function(){
+  it("Should sort an array of random whole numbers correctly.", function(){
+    expect(bubbleSort([1, 2, 0, 44, -98, 7])).toStrictEqual([-98, 0, 1, 2, 7, 44]);
+    expect(bubbleSort([55, 63, 1034216, -1, 0, 8])).toStrictEqual([-1, 0, 8, 55, 63, 1034216]);
   });
 
+  it("Should sort an array of random non-whole numbers correctly.", function(){
+    expect(bubbleSort([-2.4, 8, 0, 1, 99.9, 7])).toStrictEqual([-2.4, 0, 1, 7, 8, 99.9]);
+    expect(bubbleSort([-5, -8.2, 6, -100, 0, 9, 9])).toStrictEqual([-100, -8.2, -5, 0, 6, 9, 9]);
+  })
 
+  it("Should throw an error if a non-numerical index is in the input array.", function(){
+    expect(() => bubbleSort([5, 'taco', 4])).toThrow('Not all of the indexes of the array were the expected number type.');
+  })
+
+  it("Should throw an error if a non-array input is tried.", function(){
+    expect(() => bubbleSort('i am stupid')).toThrow('An array is expected as an input.');
+  })
 });
