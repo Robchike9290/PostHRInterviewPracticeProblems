@@ -2,9 +2,10 @@ const bubbleSort = require("./bubbleSort");
 const insertionSort = require("./insertionSort");
 const selectionSort = require("./selectionSort");
 const mergeSort = require("./mergeSort");
+const quickSort = require("./quickSort");
 
 describe("bubbleSort", function(){
-  it("Should return arrays with zero or one elements immediately", function(){
+  it("Should return arrays with zero or one elements in an unmodified state", function(){
     expect(bubbleSort([])).toStrictEqual([]);
     expect(bubbleSort([6])).toStrictEqual([6]);
   });
@@ -29,7 +30,7 @@ describe("bubbleSort", function(){
 });
 
 describe("insertionSort", function(){
-  it("Should return arrays with zero or one elements immediately", function(){
+  it("Should return arrays with zero or one elements in an unmodified state", function(){
     expect(insertionSort([])).toStrictEqual([]);
     expect(insertionSort([6])).toStrictEqual([6]);
   });
@@ -54,7 +55,7 @@ describe("insertionSort", function(){
 })
 
 describe("selectionSort", function(){
-  it("Should return arrays with zero or one elements immediately", function(){
+  it("Should return arrays with zero or one elements in an unmodified state", function(){
     expect(selectionSort([])).toStrictEqual([]);
     expect(selectionSort([6])).toStrictEqual([6]);
   });
@@ -79,7 +80,7 @@ describe("selectionSort", function(){
 
   // Need to finish these tests for TDD for this function.
   describe("mergeSort", function(){
-    it("Should return arrays with zero or one elements immediately", function(){
+    it("Should return arrays with zero or one elements in an unmodified state", function(){
       expect(mergeSort([])).toStrictEqual([]);
       expect(mergeSort([6])).toStrictEqual([6]);
     });
@@ -100,6 +101,21 @@ describe("selectionSort", function(){
 
     it("Should throw an error if a non-array input is tried.", function(){
       expect(() => mergeSort(false)).toThrow('The input must be an array.');
+    })
+  })
+
+  describe("quickSort", function(){
+    it("Should return arrays with zero or one elements in an unmodified state", function() {
+      expect(quickSort([])).toStrictEqual([]);
+      expect(quickSort([4])).toStrictEqual([4]);
+    })
+
+    it("Should throw an error when an input of the wrong type is passed in", function() {
+      expect(() => quickSort("cheese")).toThrow("The input was expected to be an array");
+    })
+
+    it("Should throw an error when an input array contains non-numercial indexes", function() {
+      expect(() => quickSort([1, 2, 3, 4, "Texas"])).toThrow("Some of the elements in the array not of a \"number\" type")
     })
   })
 })
