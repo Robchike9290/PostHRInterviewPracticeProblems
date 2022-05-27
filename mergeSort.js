@@ -9,7 +9,44 @@ const mergeSort = function(input) {
     return input;
   }
 
-  // write impelementation of mergeSort below...
+  const decomposeAndSortArray = function(array) {
+    if (array.length <= 1) return array;
+
+    let midpoint = Math.floor(array.length / 2);
+    let leftArray = decomposeAndSortArray(array.slice(0, midpoint));
+    let rightArray = decomposeAndSortArray(array.slice(midpoint));
+
+    return mergeArrays(leftArray, rightArray);
+  }
+
+  const mergeArrays = function(leftArray, rightArray) {
+    let result = [];
+    let left = 0;
+    let right = 0;
+
+    while (left < leftArray.length && right < rightArray.length) {
+      if (leftArray[left] <= rightArray[right]) {
+        result.push(leftArray[left]);
+        left++;
+      } else {
+        result.push(rightArray[right]);
+        right++;
+      }
+    }
+    while (left < leftArray.length) {
+      result.push(leftArray[left]);
+      left++;
+    }
+
+    while (right < rightArray.length) {
+      result.push(rightArray[right]);
+      right++;
+    }
+
+    return result;
+  }
+
+  return decomposeAndSortArray(input);
 }
 
 module.exports = mergeSort;
