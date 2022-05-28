@@ -1,12 +1,4 @@
 const quickSort = function(input) {
-  // I - An array
-  // O - A sorted array
-  // C - None
-  // E - The input may be of the wrong type
-  //   - The input array may contain elements that are not numercial
-  //   - The input array may only have zero or one elements, and therefore already be sorted.
-
-  // Edge cases first
   if (!Array.isArray(input)) throw "The input was expected to be an array";
 
   for (let index of input) {
@@ -15,7 +7,37 @@ const quickSort = function(input) {
 
   if (input.length < 2) return input;
 
-  // Quicksort alogrithm second
+  const createAndSort = function(array) {
+    let pivotIndex = Math.floor(array.length / 2);
+    let pivot = array[pivotIndex];
+    let leftArray = [];
+    let leftArraySorted = [];
+    let rightArray = [];
+    let rightArraySorted = [];
+
+    for (let i = 0; i < array.length; i++) {
+      if (i !== pivotIndex) {
+        if (array[i] <= pivot) leftArray.push(array[i]);
+        else if  (array[i] > pivot) rightArray.push(array[i]);
+      }
+    }
+
+    if (leftArray.length > 1) {
+      leftArraySorted = createAndSort(leftArray);
+    } else  {
+      leftArraySorted = leftArray;
+    }
+
+    if (rightArray.length > 1) {
+      rightArraySorted = createAndSort(rightArray);
+    } else {
+      rightArraySorted = rightArray;
+    }
+
+    return leftArraySorted.concat(pivot).concat(rightArraySorted);
+  }
+
+  return createAndSort(input);
 }
 
 module.exports = quickSort;
