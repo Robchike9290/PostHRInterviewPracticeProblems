@@ -3,6 +3,7 @@ const insertionSort = require("./insertionSort");
 const selectionSort = require("./selectionSort");
 const mergeSort = require("./mergeSort");
 const quickSort = require("./quickSort");
+const radixSort = require("./radixSort");
 
 describe("bubbleSort", function(){
   it("Should return arrays with zero or one elements in an unmodified state", function(){
@@ -131,7 +132,7 @@ describe("selectionSort", function(){
     })
 
     it("Should throw an error when an input array contains non-numercial indexes", function() {
-      expect(() => quickSort([1, 2, 3, 4, "Texas"])).toThrow("Some of the elements in the array not of a \"number\" type")
+      expect(() => quickSort([1, 2, 3, 4, "Texas"])).toThrow("Some of the elements in the array not of a \"number\" type");
     })
 
     it("Should sort an array of random whole numbers correctly.", function(){
@@ -146,6 +147,31 @@ describe("selectionSort", function(){
 
     it("Should sort a big array of numbers correctly.", function(){
       expect(quickSort(bigBackwardsArray)).toStrictEqual(bigBackwardsArray.reverse());
+    })
+  })
+
+  describe("radixSort", function(){
+    it("should throw an error if the input is not an array", function(){
+      expect(() => radixSort("burger")).toThrow("The input to this function must be an array");
+    })
+    it("should throw an error if any index of the input array is not a number", function(){
+      expect(() => radixSort([1, 2, 3, 4, "five"])).toThrow("All the indexes in the input array must be whole integers");
+    })
+    it("should throw an error if any index of the input array is a not a whole number", function(){
+      expect(() => radixSort([1, 2, 3, 4, 5.1])).toThrow("All the indexes in the input array must be whole integers");
+    })
+    it("should return arrays with zero or one index in an unmodified state", function(){
+      expect(radixSort([])).toStrictEqual([]);
+      expect(radixSort([1])).toStrictEqual([1]);
+    })
+    it("should sort an array of random positive whole numbers correctly", function(){
+      expect(radixSort([4, 6, 32, 14, 900, 4591, 32457, 50])).toStrictEqual([4, 6, 14, 32, 50, 900, 4591, 32457]);
+    })
+    it("should sort an array of random negative whole numbers correctly", function(){
+      expect(radixSort([-500, -5, -50, -5000, -50000])).toStrictEqual([-50000, -5000, -500, -50, -5]);
+    })
+    it("should sort an array of mixed random positive and nugative numbers correctly", function(){
+      expect(radixSort([-500, -865, -34, 45, 906, 50293, 78757, 0, 1, -2])).toStrictEqual([-865, -500, -34, -2, 0, 1, 45, 906, 50293, 78757]);
     })
   })
 })
