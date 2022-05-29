@@ -160,6 +160,8 @@ describe("selectionSort", function(){
   describe("radixSort - getComparisonDigit", function(){
     it("Should get the digit at the requested number of places to the left of the ones place", function(){
       expect(getComparisonDigit(12346, 4)).toEqual(1);
+      expect(getComparisonDigit(5, 0)).toEqual(5);
+      expect(getComparisonDigit(-24356, 2)).toEqual(3);
     })
   })
 

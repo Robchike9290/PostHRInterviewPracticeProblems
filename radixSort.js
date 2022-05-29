@@ -9,21 +9,16 @@ const getDigits = function(number) {
 }
 
 const getComparisonDigit = function(number, place) {
-  number = Math.abs(number);
-  let counter = 0;
-  let comparisonDigit = number % 10;
-  while (counter < place) {
-    number = number - (number % 10) / 10;
-    counter++;
-  }
-  comparisonDigit = number % 10;
-  return comparisonDigit;
+  let absoluteNumber = Math.abs(number);
+  let digit = Math.floor(Math.abs(absoluteNumber) / Math.pow(10, place)) % 10;
+  return digit;
 }
 
 const getMaxNumberOfDigits = function(array) {
   let max = 0;
   for (let i = 0; i < array.length; i++) {
-    let currentNumDigits = Math.floor(Math.log10(array[i])) + 1;
+    let currentNum = Math.abs(array[i]);
+    let currentNumDigits = Math.floor(Math.log10(currentNum)) + 1;
     max = Math.max(max, currentNumDigits);
   }
   return max;
@@ -66,11 +61,16 @@ const radixSort = function(input) {
 
   positiveNumberArray = sort(positiveNumberArray);
   negativeNumberArray = sort(negativeNumberArray).reverse();
+  for (let number in negativeNumberArray) {
+    number *= -1;
+  }
 
   return negativeNumberArray.concat(positiveNumberArray);
 }
 
-module.exports.getDigits = getDigits;
-module.exports.getComparisonDigit = getComparisonDigit;
-module.exports.getMaxNumberOfDigits = getMaxNumberOfDigits;
-module.exports.radixSort = radixSort;
+module.exports = {
+  getDigits: getDigits,
+  getComparisonDigit: getComparisonDigit,
+  getMaxNumberOfDigits: getMaxNumberOfDigits,
+  radixSort: radixSort
+}
