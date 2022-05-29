@@ -1,3 +1,34 @@
+const getDigits = function(number) {
+  number = Math.abs(number);
+  let numDigits = 1;
+  while (number / 10 >= 1) {
+    number = (number - (number % 10)) / 10;
+    numDigits++;
+  }
+  return numDigits;
+}
+
+const getComparisonDigit = function(number, place) {
+  number = Math.abs(number);
+  let counter = 0;
+  let comparisonDigit = number % 10;
+  while (counter < place) {
+    number = number - (number % 10) / 10;
+    counter++;
+  }
+  comparisonDigit = number % 10;
+  return comparisonDigit;
+}
+
+const getMaxNumberOfDigits = function(array) {
+  let max = 0;
+  for (let i = 0; i < array.length; i++) {
+    let currentNumDigits = Math.floor(Math.log10(array[i])) + 1;
+    max = Math.max(max, currentNumDigits);
+  }
+  return max;
+}
+
 const radixSort = function(input) {
   if (!Array.isArray(input)) throw "The input to this function must be an array";
 
@@ -8,37 +39,6 @@ const radixSort = function(input) {
   }
 
   if (input.length < 2) return input;
-
-  const getDigits = function(number) {
-    number = Math.abs(number);
-    let numDigits = 1;
-    while (number / 10 >= 1) {
-      number = (number - (number % 10)) / 10;
-      numDigits++;
-    }
-    return numDigits;
-  }
-
-  const getComparisonDigit = function(number, place) {
-    number = Math.abs(number);
-    let counter = 0;
-    let comparisonDigit = number % 10;
-    while (counter < place) {
-      number = number - (number % 10) / 10;
-      counter++;
-    }
-    comparisonDigit = number % 10;
-    return comparisonDigit;
-  }
-
-  const getMaxNumberOfDigits = function(array) {
-    let max = 0;
-    for (let i = 0; i < array.length; i++) {
-      let currentNumDigits = Math.floor(Math.log10(array[i])) + 1;
-      max = Math.max(max, currentNumDigits);
-    }
-    return max;
-  }
 
   let negativeNumberArray = [];
   let positiveNumberArray = [];
@@ -54,13 +54,14 @@ const radixSort = function(input) {
   const sort = function(array) {
     let maxDigits = getMaxNumberOfDigits(array);
     for (let i = 0; i < maxDigits; i++) {
-      let digitBuckets = new Array(10).fill([]);
+      let digitBuckets = Array.from({length: 10}, () => []);
       for (let j = 0; j < array.length; j++) {
         let comparisonDigit = getComparisonDigit(array[j], i);
         digitBuckets[comparisonDigit].push(array[j]);
       }
       array = [].concat(...digitBuckets);
     }
+    return array;
   }
 
   positiveNumberArray = sort(positiveNumberArray);
@@ -69,4 +70,7 @@ const radixSort = function(input) {
   return negativeNumberArray.concat(positiveNumberArray);
 }
 
-module.exports = radixSort;
+module.exports.getDigits = getDigits;
+module.exports.getComparisonDigit = getComparisonDigit;
+module.exports.getMaxNumberOfDigits = getMaxNumberOfDigits;
+module.exports.radixSort = radixSort;

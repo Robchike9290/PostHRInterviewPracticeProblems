@@ -3,7 +3,7 @@ const insertionSort = require("./insertionSort");
 const selectionSort = require("./selectionSort");
 const mergeSort = require("./mergeSort");
 const quickSort = require("./quickSort");
-const radixSort = require("./radixSort");
+const {radixSort, getDigits, getComparisonDigit, getMaxNumberOfDigits} = require("./radixSort");
 
 describe("bubbleSort", function(){
   it("Should return arrays with zero or one elements in an unmodified state", function(){
@@ -150,7 +150,26 @@ describe("selectionSort", function(){
     })
   })
 
-  describe("radixSort", function(){
+  describe("radixSort - getDigits", function(){
+    it("Should get the number of digits in an input number", function(){
+      expect(getDigits(88)).toEqual(2);
+      expect(getDigits(3246)).toEqual(4);
+    })
+  })
+
+  describe("radixSort - getComparisonDigit", function(){
+    it("Should get the digit at the requested number of places to the left of the ones place", function(){
+      expect(getComparisonDigit(12346, 4)).toEqual(1);
+    })
+  })
+
+  describe("radixSort - getMaxNumberOfDigits", function(){
+    it("Should get the number of digits in the longest number in an array", function(){
+      expect(getMaxNumberOfDigits([46235, 45, 77523, 34, 54, 222])).toEqual(5);
+    })
+  })
+
+  describe("radixSort - radixSort", function(){
     it("should throw an error if the input is not an array", function(){
       expect(() => radixSort("burger")).toThrow("The input to this function must be an array");
     })
