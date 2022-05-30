@@ -4,6 +4,7 @@ const selectionSort = require("./selectionSort");
 const mergeSort = require("./mergeSort");
 const quickSort = require("./quickSort");
 const {radixSort, getDigits, getComparisonDigit, getMaxNumberOfDigits} = require("./radixSort");
+const SinglyLinkedList = require("./SinglyLinkedList");
 
 describe("bubbleSort", function(){
   it("Should return arrays with zero or one elements in an unmodified state", function(){
@@ -194,5 +195,9 @@ describe("selectionSort", function(){
     it("should sort an array of mixed random positive and nugative numbers correctly", function(){
       expect(radixSort([-500, -865, -34, 45, 906, 50293, 78757, 0, 1, -2])).toStrictEqual([-865, -500, -34, -2, 0, 1, 45, 906, 50293, 78757]);
     })
+  })
+
+  describe("SinglyLinkedList", function(){
+
   })
 })
