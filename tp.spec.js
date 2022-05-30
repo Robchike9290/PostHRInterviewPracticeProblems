@@ -4,7 +4,7 @@ const selectionSort = require("./selectionSort");
 const mergeSort = require("./mergeSort");
 const quickSort = require("./quickSort");
 const {radixSort, getDigits, getComparisonDigit, getMaxNumberOfDigits} = require("./radixSort");
-const SinglyLinkedList = require("./SinglyLinkedList");
+const {Node, SinglyLinkedList} = require("./SinglyLinkedList");
 
 describe("bubbleSort", function(){
   it("Should return arrays with zero or one elements in an unmodified state", function(){
@@ -197,12 +197,21 @@ describe("selectionSort", function(){
     })
   })
 
-  describe("SinglyLinkedList", function(){
+  describe("SinglyLinkedList - Node", function(){
+    let newNode = new Node(88);
+    it("should create a node with the input value as the value property and a null next node", function(){
+      expect(newNode.value).toEqual(88);
+      expect(newNode.next).toEqual(null);
+    })
+  })
+
+  describe("SinglyLinkedList - SinglyLinkedList", function(){
     let emptySinglyLinkedList = new SinglyLinkedList();
     it("should be able to create an linked list with no length, nodes, head, or tail initially", function(){
       expect(emptySinglyLinkedList.head).toEqual(null);
       expect(emptySinglyLinkedList.length).toEqual(0);
       expect(emptySinglyLinkedList.tail).toEqual(null);
+      expect(emptySinglyLinkedList.prevTail).toEqual(null);
     })
     it("should be able to create a new node on an empty instance with the head and tail assigned to that node", function(){
       expect([]).tobe(7);
