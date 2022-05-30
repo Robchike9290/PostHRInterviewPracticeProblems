@@ -198,10 +198,10 @@ describe("selectionSort", function(){
   })
 
   describe("SinglyLinkedList - Node", function(){
-    let newNode = new Node(88);
+    let testNode = new Node(88);
     it("should create a node with the input value as the value property and a null next node", function(){
-      expect(newNode.value).toEqual(88);
-      expect(newNode.next).toEqual(null);
+      expect(testNode.value).toEqual(88);
+      expect(testNode.next).toEqual(null);
     })
   })
 
@@ -214,13 +214,30 @@ describe("selectionSort", function(){
       expect(emptySinglyLinkedList.prevTail).toEqual(null);
     })
     it("should be able to create a new node on an empty instance with the head and tail assigned to that node", function(){
-      expect([]).tobe(7);
+      let firstNode = new Node(104);
+      let singleNodeLinkedList = new SinglyLinkedList();
+      singleNodeLinkedList.push(firstNode);
+      expect(singleNodeLinkedList.length).toEqual(1);
+      expect(singleNodeLinkedList.head.next).toEqual(null);
+      expect(singleNodeLinkedList.head).toStrictEqual(firstNode);
+      expect(singleNodeLinkedList.tail).toStrictEqual(firstNode);
     })
     it("should be able to add a new node to a single-node linked list and move the tail to the newest mode accordingly", function(){
-      expect([]).tobe(7);
+      let firstNode = new Node(187);
+      let secondNode = new Node(313);
+      let twoNodeLinkedList = new SinglyLinkedList();
+      twoNodeLinkedList.push(firstNode);
+      twoNodeLinkedList.push(secondNode);
+      expect(twoNodeLinkedList.tail).toStrictEqual(secondNode);
+      expect(twoNodeLinkedList.head.next).toStrictEqual(twoNodeLinkedList.tail);
     })
     it("should be able to keep track of the length of the linked list each time a node is added", function(){
-      expect([]).tobe(7);
+      let firstNode = new Node(512);
+      let secondNode = new Node(210);
+      let twoNodeLinkedList = new SinglyLinkedList();
+      twoNodeLinkedList.push(firstNode);
+      twoNodeLinkedList.push(secondNode);
+      expect(twoNodeLinkedList.length).toBe(2);
     })
   })
 })
