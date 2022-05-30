@@ -198,9 +198,20 @@ describe("selectionSort", function(){
   })
 
   describe("SinglyLinkedList", function(){
-    it("should be able to create an linked list with no length, nodes, head, or tail initially")
-    it("should be able to create a new node on an empty instance with the head and tail assigned to that node")
-    it("should be able to add a new node to a single-node linked list and move the tail to the newest mode accordingly")
-    it("should be able to keep track of the length of the linked list each time a node is added")
+    let emptySinglyLinkedList = new SinglyLinkedList();
+    it("should be able to create an linked list with no length, nodes, head, or tail initially", function(){
+      expect(emptySinglyLinkedList.head).toEqual(null);
+      expect(emptySinglyLinkedList.length).toEqual(0);
+      expect(emptySinglyLinkedList.tail).toEqual(null);
+    })
+    it("should be able to create a new node on an empty instance with the head and tail assigned to that node", function(){
+      expect([]).tobe(7);
+    })
+    it("should be able to add a new node to a single-node linked list and move the tail to the newest mode accordingly", function(){
+      expect([]).tobe(7);
+    })
+    it("should be able to keep track of the length of the linked list each time a node is added", function(){
+      expect([]).tobe(7);
+    })
   })
 })

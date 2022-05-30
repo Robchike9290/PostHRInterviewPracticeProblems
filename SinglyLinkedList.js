@@ -4,8 +4,12 @@
 // - The ability to keep track of which node is the head of the list.
 // - The ability to keep track of which node is the tail of the list.
 
-class SinglyLinkedList() {
-
+class SinglyLinkedList {
+  constructor() {
+    this.head = null;
+    this.length = 0;
+    this.tail = null;
+  }
 }
 
-modeule.exports = SinglyLinkedList;
+module.exports = SinglyLinkedList;
