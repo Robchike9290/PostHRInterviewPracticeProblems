@@ -8,18 +8,18 @@ const {Node, SinglyLinkedList} = require("./SinglyLinkedList");
 
 describe("bubbleSort", function(){
   it("Should return arrays with zero or one elements in an unmodified state", function(){
-    expect(bubbleSort([])).toStrictEqual([]);
-    expect(bubbleSort([6])).toStrictEqual([6]);
+    expect(bubbleSort([])).toEqual([]);
+    expect(bubbleSort([6])).toEqual([6]);
   });
 
   it("Should sort an array of random whole numbers correctly.", function(){
-    expect(bubbleSort([1, 2, 0, 44, -98, 7])).toStrictEqual([-98, 0, 1, 2, 7, 44]);
-    expect(bubbleSort([55, 63, 1034216, -1, 0, 8])).toStrictEqual([-1, 0, 8, 55, 63, 1034216]);
+    expect(bubbleSort([1, 2, 0, 44, -98, 7])).toEqual([-98, 0, 1, 2, 7, 44]);
+    expect(bubbleSort([55, 63, 1034216, -1, 0, 8])).toEqual([-1, 0, 8, 55, 63, 1034216]);
   });
 
   it("Should sort an array of random non-whole numbers correctly.", function(){
-    expect(bubbleSort([-2.4, 8, 0, 1, 99.9, 7])).toStrictEqual([-2.4, 0, 1, 7, 8, 99.9]);
-    expect(bubbleSort([-5, -8.2, 6, -100, 0, 9, 9])).toStrictEqual([-100, -8.2, -5, 0, 6, 9, 9]);
+    expect(bubbleSort([-2.4, 8, 0, 1, 99.9, 7])).toEqual([-2.4, 0, 1, 7, 8, 99.9]);
+    expect(bubbleSort([-5, -8.2, 6, -100, 0, 9, 9])).toEqual([-100, -8.2, -5, 0, 6, 9, 9]);
   })
 
   it("Should throw an error if a non-numerical index is in the input array.", function(){
@@ -33,18 +33,18 @@ describe("bubbleSort", function(){
 
 describe("insertionSort", function(){
   it("Should return arrays with zero or one elements in an unmodified state", function(){
-    expect(insertionSort([])).toStrictEqual([]);
-    expect(insertionSort([6])).toStrictEqual([6]);
+    expect(insertionSort([])).toEqual([]);
+    expect(insertionSort([6])).toEqual([6]);
   });
 
   it("Should sort an array of random whole numbers correctly.", function(){
-    expect(insertionSort([1, 22, -3, 7, 6, 51])).toStrictEqual([-3, 1, 6, 7, 22, 51]);
-    expect(insertionSort([4, -8, -100, 70, 400])).toStrictEqual([-100, -8, 4, 70, 400]);
+    expect(insertionSort([1, 22, -3, 7, 6, 51])).toEqual([-3, 1, 6, 7, 22, 51]);
+    expect(insertionSort([4, -8, -100, 70, 400])).toEqual([-100, -8, 4, 70, 400]);
   });
 
   it("Should sort an array of random non-whole numbers correctly.", function(){
-    expect(insertionSort([-2.4, -57, 8.2, 40, 7, 7.7])).toStrictEqual([-57, -2.4, 7, 7.7, 8.2, 40]);
-    expect(insertionSort([-8, 7.4, 3, 9, -50.3])).toStrictEqual([-50.3, -8, 3, 7.4, 9]);
+    expect(insertionSort([-2.4, -57, 8.2, 40, 7, 7.7])).toEqual([-57, -2.4, 7, 7.7, 8.2, 40]);
+    expect(insertionSort([-8, 7.4, 3, 9, -50.3])).toEqual([-50.3, -8, 3, 7.4, 9]);
   })
 
   it("Should throw an error if a non-numerical index is in the input array.", function(){
@@ -58,18 +58,18 @@ describe("insertionSort", function(){
 
 describe("selectionSort", function(){
   it("Should return arrays with zero or one elements in an unmodified state", function(){
-    expect(selectionSort([])).toStrictEqual([]);
-    expect(selectionSort([6])).toStrictEqual([6]);
+    expect(selectionSort([])).toEqual([]);
+    expect(selectionSort([6])).toEqual([6]);
   });
 
   it("Should sort an array of random whole numbers correctly.", function(){
-    expect(selectionSort([5, 66, 7, -4, -109, 88])).toStrictEqual([-109, -4, 5, 7, 66, 88]);
-    expect(selectionSort([10, 0, 0, 4, -3, 8])).toStrictEqual([-3, 0, 0, 4, 8, 10]);
+    expect(selectionSort([5, 66, 7, -4, -109, 88])).toEqual([-109, -4, 5, 7, 66, 88]);
+    expect(selectionSort([10, 0, 0, 4, -3, 8])).toEqual([-3, 0, 0, 4, 8, 10]);
   });
 
   it("Should sort an array of random non-whole numbers correctly.", function(){
-    expect(selectionSort([-2.4, -578, 8.2, 408, 7, 7.7])).toStrictEqual([-578, -2.4, 7, 7.7, 8.2, 408]);
-    expect(selectionSort([-8, 7.48, 38, 9, -50.38])).toStrictEqual([-50.38, -8, 7.48, 9, 38]);
+    expect(selectionSort([-2.4, -578, 8.2, 408, 7, 7.7])).toEqual([-578, -2.4, 7, 7.7, 8.2, 408]);
+    expect(selectionSort([-8, 7.48, 38, 9, -50.38])).toEqual([-50.38, -8, 7.48, 9, 38]);
   })
 
   it("Should throw an error if a non-numerical index is in the input array.", function(){
@@ -88,22 +88,22 @@ describe("selectionSort", function(){
     bigBackwardsArray.reverse();
 
     it("Should return arrays with zero or one elements in an unmodified state", function(){
-      expect(mergeSort([])).toStrictEqual([]);
-      expect(mergeSort([6])).toStrictEqual([6]);
+      expect(mergeSort([])).toEqual([]);
+      expect(mergeSort([6])).toEqual([6]);
     });
 
     it("Should sort an array of random whole numbers correctly.", function(){
-      expect(mergeSort([5, 66, 7, -4, -109, 88])).toStrictEqual([-109, -4, 5, 7, 66, 88]);
-      expect(mergeSort([10, 0, 0, 4, -3, 8])).toStrictEqual([-3, 0, 0, 4, 8, 10]);
+      expect(mergeSort([5, 66, 7, -4, -109, 88])).toEqual([-109, -4, 5, 7, 66, 88]);
+      expect(mergeSort([10, 0, 0, 4, -3, 8])).toEqual([-3, 0, 0, 4, 8, 10]);
     });
 
     it("Should sort an array of random non-whole numbers correctly.", function(){
-      expect(mergeSort([-2.4, -578, 8.2, 408, 7, 7.7])).toStrictEqual([-578, -2.4, 7, 7.7, 8.2, 408]);
-      expect(mergeSort([-8, 7.48, 38, 9, -50.38])).toStrictEqual([-50.38, -8, 7.48, 9, 38]);
+      expect(mergeSort([-2.4, -578, 8.2, 408, 7, 7.7])).toEqual([-578, -2.4, 7, 7.7, 8.2, 408]);
+      expect(mergeSort([-8, 7.48, 38, 9, -50.38])).toEqual([-50.38, -8, 7.48, 9, 38]);
     })
 
     it("Should sort a big array of numbers correctly.", function(){
-      expect(mergeSort(bigBackwardsArray)).toStrictEqual(bigBackwardsArray.reverse());
+      expect(mergeSort(bigBackwardsArray)).toEqual(bigBackwardsArray.reverse());
     })
 
     it("Should throw an error if a non-numerical index is in the input array.", function(){
@@ -123,8 +123,8 @@ describe("selectionSort", function(){
     bigBackwardsArray.reverse();
 
     it("Should return arrays with zero or one elements in an unmodified state", function() {
-      expect(quickSort([])).toStrictEqual([]);
-      expect(quickSort([4])).toStrictEqual([4]);
+      expect(quickSort([])).toEqual([]);
+      expect(quickSort([4])).toEqual([4]);
     })
 
     it("Should throw an error when an input of the wrong type is passed in", function() {
@@ -136,38 +136,38 @@ describe("selectionSort", function(){
     })
 
     it("Should sort an array of random whole numbers correctly.", function(){
-      expect(quickSort([5, 66, 7, -4, -109, 88])).toStrictEqual([-109, -4, 5, 7, 66, 88]);
-      expect(quickSort([10, 0, 0, 4, -3, 8])).toStrictEqual([-3, 0, 0, 4, 8, 10]);
+      expect(quickSort([5, 66, 7, -4, -109, 88])).toEqual([-109, -4, 5, 7, 66, 88]);
+      expect(quickSort([10, 0, 0, 4, -3, 8])).toEqual([-3, 0, 0, 4, 8, 10]);
     });
 
     it("Should sort an array of random non-whole numbers correctly.", function(){
-      expect(quickSort([-2.4, -578, 8.2, 408, 7, 7.7])).toStrictEqual([-578, -2.4, 7, 7.7, 8.2, 408]);
-      expect(quickSort([-8, 7.48, 38, 9, -50.38])).toStrictEqual([-50.38, -8, 7.48, 9, 38]);
+      expect(quickSort([-2.4, -578, 8.2, 408, 7, 7.7])).toEqual([-578, -2.4, 7, 7.7, 8.2, 408]);
+      expect(quickSort([-8, 7.48, 38, 9, -50.38])).toEqual([-50.38, -8, 7.48, 9, 38]);
     })
 
     it("Should sort a big array of numbers correctly.", function(){
-      expect(quickSort(bigBackwardsArray)).toStrictEqual(bigBackwardsArray.reverse());
+      expect(quickSort(bigBackwardsArray)).toEqual(bigBackwardsArray.reverse());
     })
   })
 
   describe("radixSort - getDigits", function(){
     it("Should get the number of digits in an input number", function(){
-      expect(getDigits(88)).toEqual(2);
-      expect(getDigits(3246)).toEqual(4);
+      expect(getDigits(88)).toBe(2);
+      expect(getDigits(3246)).toBe(4);
     })
   })
 
   describe("radixSort - getComparisonDigit", function(){
     it("Should get the digit at the requested number of places to the left of the ones place", function(){
-      expect(getComparisonDigit(12346, 4)).toEqual(1);
-      expect(getComparisonDigit(5, 0)).toEqual(5);
-      expect(getComparisonDigit(-24356, 2)).toEqual(3);
+      expect(getComparisonDigit(12346, 4)).toBe(1);
+      expect(getComparisonDigit(5, 0)).toBe(5);
+      expect(getComparisonDigit(-24356, 2)).toBe(3);
     })
   })
 
   describe("radixSort - getMaxNumberOfDigits", function(){
     it("Should get the number of digits in the longest number in an array", function(){
-      expect(getMaxNumberOfDigits([46235, 45, 77523, 34, 54, 222])).toEqual(5);
+      expect(getMaxNumberOfDigits([46235, 45, 77523, 34, 54, 222])).toBe(5);
     })
   })
 
@@ -182,43 +182,43 @@ describe("selectionSort", function(){
       expect(() => radixSort([1, 2, 3, 4, 5.1])).toThrow("All the indexes in the input array must be whole integers");
     })
     it("should return arrays with zero or one index in an unmodified state", function(){
-      expect(radixSort([])).toStrictEqual([]);
-      expect(radixSort([1])).toStrictEqual([1]);
+      expect(radixSort([])).toEqual([]);
+      expect(radixSort([1])).toEqual([1]);
     })
     it("should sort an array of random positive whole numbers correctly", function(){
-      expect(radixSort([4, 6, 32, 14, 900, 4591, 32457, 50])).toStrictEqual([4, 6, 14, 32, 50, 900, 4591, 32457]);
+      expect(radixSort([4, 6, 32, 14, 900, 4591, 32457, 50])).toEqual([4, 6, 14, 32, 50, 900, 4591, 32457]);
     })
     it("should sort an array of random negative whole numbers correctly", function(){
-      expect(radixSort([-500, -5, -50, -5000, -50000])).toStrictEqual([-50000, -5000, -500, -50, -5]);
+      expect(radixSort([-500, -5, -50, -5000, -50000])).toEqual([-50000, -5000, -500, -50, -5]);
     })
     it("should sort an array of mixed random positive and nugative numbers correctly", function(){
-      expect(radixSort([-500, -865, -34, 45, 906, 50293, 78757, 0, 1, -2])).toStrictEqual([-865, -500, -34, -2, 0, 1, 45, 906, 50293, 78757]);
+      expect(radixSort([-500, -865, -34, 45, 906, 50293, 78757, 0, 1, -2])).toEqual([-865, -500, -34, -2, 0, 1, 45, 906, 50293, 78757]);
     })
   })
 
   describe("SinglyLinkedList - Node", function(){
     let testNode = new Node(88);
     it("should create a node with the input value as the value property and a null next node", function(){
-      expect(testNode.value).toEqual(88);
-      expect(testNode.next).toEqual(null);
+      expect(testNode.value).toBe(88);
+      expect(testNode.next).toBe(null);
     })
   })
 
   describe("SinglyLinkedList - SinglyLinkedList", function(){
     let emptySinglyLinkedList = new SinglyLinkedList();
     it("should be able to create an linked list with no length, nodes, head, or tail initially", function(){
-      expect(emptySinglyLinkedList.head).toEqual(null);
-      expect(emptySinglyLinkedList.length).toEqual(0);
-      expect(emptySinglyLinkedList.tail).toEqual(null);
+      expect(emptySinglyLinkedList.head).toBe(null);
+      expect(emptySinglyLinkedList.length).toBe(0);
+      expect(emptySinglyLinkedList.tail).toBe(null);
     })
     it("should be able to create a new node on an empty instance with the head and tail assigned to that node", function(){
       let firstNode = new Node(104);
       let singleNodeLinkedList = new SinglyLinkedList();
       singleNodeLinkedList.push(firstNode);
-      expect(singleNodeLinkedList.length).toEqual(1);
-      expect(singleNodeLinkedList.head.next).toEqual(null);
-      expect(singleNodeLinkedList.head).toStrictEqual(firstNode);
-      expect(singleNodeLinkedList.tail).toStrictEqual(firstNode);
+      expect(singleNodeLinkedList.length).toBe(1);
+      expect(singleNodeLinkedList.head.next).toBe(null);
+      expect(singleNodeLinkedList.head).toEqual(firstNode);
+      expect(singleNodeLinkedList.tail).toEqual(firstNode);
     })
     it("should be able to add a new node to a single-node linked list and move the tail to the newest mode accordingly", function(){
       let firstNode = new Node(187);
@@ -226,8 +226,8 @@ describe("selectionSort", function(){
       let twoNodeLinkedList = new SinglyLinkedList();
       twoNodeLinkedList.push(firstNode);
       twoNodeLinkedList.push(secondNode);
-      expect(twoNodeLinkedList.tail).toStrictEqual(secondNode);
-      expect(twoNodeLinkedList.head.next).toStrictEqual(twoNodeLinkedList.tail);
+      expect(twoNodeLinkedList.tail).toEqual(secondNode);
+      expect(twoNodeLinkedList.head.next).toEqual(twoNodeLinkedList.tail);
     })
     it("should be able to keep track of the length of the linked list each time a node is added", function(){
       let firstNode = new Node(512);
@@ -246,7 +246,7 @@ describe("selectionSort", function(){
       popTestLinkedList.push(secondNode);
       popTestLinkedList.push(thirdNode);
       popTestLinkedList.pop();
-      expect(popTestLinkedList.tail).toStrictEqual(secondNode);
+      expect(popTestLinkedList.tail).toEqual(secondNode);
     })
     it("should be able to keep track of the length of the linked list each time a node is removed", function(){
       let firstNode = new Node(586);
@@ -257,12 +257,12 @@ describe("selectionSort", function(){
       popTestLinkedList.push(secondNode);
       popTestLinkedList.push(thirdNode);
       popTestLinkedList.pop();
-      expect(popTestLinkedList.tail).toStrictEqual(secondNode);
-      expect(popTestLinkedList.length).toEqual(2);
+      expect(popTestLinkedList.tail).toEqual(secondNode);
+      expect(popTestLinkedList.length).toBe(2);
       popTestLinkedList.pop();
       popTestLinkedList.pop();
-      expect(popTestLinkedList.length).toEqual(0);
-      expect(popTestLinkedList.tail).toStrictEqual(null);
+      expect(popTestLinkedList.length).toBe(0);
+      expect(popTestLinkedList.tail).toEqual(null);
     })
     // ADD TEST TO ADDRESS THE VALUE THAT HAS BEEN POPPED.
   })
@@ -281,7 +281,7 @@ describe("selectionSort", function(){
     nonemptyShiftTestLinkedList.push(thirdNode);
     nonemptyShiftTestLinkedList.shift();
     it("should move the head to the second node in the linked list", function(){
-      expect(nonemptyShiftTestLinkedList.head).toStrictEqual(secondNode);
+      expect(nonemptyShiftTestLinkedList.head).toEqual(secondNode);
     })
     it("should properly report the length of a linked list once it has been shifted", function(){
       expect(nonemptyShiftTestLinkedList.length).toEqual(2);
