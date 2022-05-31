@@ -196,7 +196,7 @@ describe("selectionSort", function(){
     })
   })
 
-  describe("SinglyLinkedList - Node constructor", function(){
+  describe("SinglyLinkedList - Node.constructor", function(){
     let testNode = new Node(88);
     it("should create a node with the input value as the value property and a null next node", function(){
       expect(testNode.value).toBe(88);
@@ -204,7 +204,7 @@ describe("selectionSort", function(){
     })
   })
 
-  describe("SinglyLinkedList - SinglyLinkedList constructor", function(){
+  describe("SinglyLinkedList - SinglyLinkedList.constructor", function(){
     let emptySinglyLinkedList = new SinglyLinkedList();
     it("should be able to create an linked list with no length, nodes, head, or tail initially", function(){
       expect(emptySinglyLinkedList.head).toBe(null);
@@ -213,7 +213,7 @@ describe("selectionSort", function(){
     })
   })
 
-  describe("SinglyLinkedList - SinglyLinkedList push", function(){
+  describe("SinglyLinkedList - SinglyLinkedList.push", function(){
     it("should be able to create a new node on an empty instance with the head and tail assigned to that node", function(){
       let firstNode = new Node(104);
       let singleNodeLinkedList = new SinglyLinkedList();
@@ -246,7 +246,7 @@ describe("selectionSort", function(){
     })
   })
 
-  describe("SinglyLinkedList - SinglyLinkedList pop", function(){
+  describe("SinglyLinkedList - SinglyLinkedList.pop", function(){
     it("should be able to remove a node from the end of a singly linked list", function(){
       let firstNode = new Node(586);
       let secondNode = new Node(810);
@@ -276,9 +276,13 @@ describe("selectionSort", function(){
       popTestLinkedList.push(firstNode);
       expect(popTestLinkedList.pop()).toEqual(firstNode);
     })
+    it("should return null if pop is executed on a linked list with no nodes", function(){
+      let popTestLinkedList = new SinglyLinkedList();
+      expect(popTestLinkedList.pop()).toEqual(null);
+    })
   })
 
-  describe("SinglyLinkedList - SinglyLinkedList shift", function(){
+  describe("SinglyLinkedList - SinglyLinkedList.shift", function(){
     let emptyShiftTestLinkedList = new SinglyLinkedList();
     it("should return null if there are no nodes in the linked list", function(){
       expect(emptyShiftTestLinkedList.shift()).toBe(null);
@@ -299,6 +303,13 @@ describe("selectionSort", function(){
     })
     it("should return the popped node at completion of the function\'s execution", function(){
       expect(nonemptyShiftTestLinkedList.shift()).toEqual(secondNode);
+    })
+    it("should set the tail to be null if the length of the linked list is zero after a shift is complete", function(){
+      let shiftTestLinkedList = new SinglyLinkedList();
+      let firstNode = new Node(89);
+      shiftTestLinkedList.push(firstNode);
+      shiftTestLinkedList.shift();
+      expect(shiftTestLinkedList.tail).toBe(null);
     })
   })
 })
