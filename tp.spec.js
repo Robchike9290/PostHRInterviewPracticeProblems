@@ -196,7 +196,7 @@ describe("selectionSort", function(){
     })
   })
 
-  describe("SinglyLinkedList - Node", function(){
+  describe("SinglyLinkedList - Node constructor", function(){
     let testNode = new Node(88);
     it("should create a node with the input value as the value property and a null next node", function(){
       expect(testNode.value).toBe(88);
@@ -204,13 +204,16 @@ describe("selectionSort", function(){
     })
   })
 
-  describe("SinglyLinkedList - SinglyLinkedList", function(){
+  describe("SinglyLinkedList - SinglyLinkedList constructor", function(){
     let emptySinglyLinkedList = new SinglyLinkedList();
     it("should be able to create an linked list with no length, nodes, head, or tail initially", function(){
       expect(emptySinglyLinkedList.head).toBe(null);
       expect(emptySinglyLinkedList.length).toBe(0);
       expect(emptySinglyLinkedList.tail).toBe(null);
     })
+  })
+
+  describe("SinglyLinkedList - SinglyLinkedList push", function(){
     it("should be able to create a new node on an empty instance with the head and tail assigned to that node", function(){
       let firstNode = new Node(104);
       let singleNodeLinkedList = new SinglyLinkedList();
@@ -237,6 +240,13 @@ describe("selectionSort", function(){
       twoNodeLinkedList.push(secondNode);
       expect(twoNodeLinkedList.length).toBe(2);
     })
+    it("should throw an error if no input is passed in to the function", function(){
+      let popTestLinkedList = new SinglyLinkedList();
+      expect(() => popTestLinkedList.push()).toThrow("Please input a node to add to the singly linked list");
+    })
+  })
+
+  describe("SinglyLinkedList - SinglyLinkedList pop", function(){
     it("should be able to remove a node from the end of a singly linked list", function(){
       let firstNode = new Node(586);
       let secondNode = new Node(810);
@@ -266,13 +276,9 @@ describe("selectionSort", function(){
       popTestLinkedList.push(firstNode);
       expect(popTestLinkedList.pop()).toEqual(firstNode);
     })
-    it("should throw an error if no input is passed in to the function", function(){
-      let popTestLinkedList = new SinglyLinkedList();
-      expect(() => popTestLinkedList.push()).toThrow("Please input a node to add to the singly linked list");
-    })
   })
 
-  describe("SinglyLinkedList - shift", function(){
+  describe("SinglyLinkedList - SinglyLinkedList shift", function(){
     let emptyShiftTestLinkedList = new SinglyLinkedList();
     it("should return null if there are no nodes in the linked list", function(){
       expect(emptyShiftTestLinkedList.shift()).toBe(null);
