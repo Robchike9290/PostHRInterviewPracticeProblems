@@ -43,6 +43,16 @@ class SinglyLinkedList {
       this.head = null;
     }
   }
+
+  shift() {
+    if (this.head === null || this.head.next === null) {
+      throw "Cannot shift nodes in a linked list less than two nodes in length";
+    }
+    let currentHead = this.head;
+    this.head = currentHead.next;
+    currentHead = null;
+    this.length--;
+  }
 }
 
 module.exports.Node = Node;

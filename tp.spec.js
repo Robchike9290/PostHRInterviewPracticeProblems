@@ -266,4 +266,25 @@ describe("selectionSort", function(){
       expect(popTestLinkedList.tail).toStrictEqual(null);
     })
   })
+
+  describe("SinglyLinked=List - shift", function(){
+    let shiftTestLinkedList = new SinglyLinkedList();
+    it("should throw an error if there are no nodes in the linked list", function(){
+      expect(() => (shiftTestLinkedList).shift()).toThrow("Cannot shift nodes in a linked list less than two nodes in length");
+    })
+    let firstNode = new Node(586);
+    shiftTestLinkedList.push(firstNode);
+    it("should throw an error if there is one node in the linked list", function(){
+      expect(() => (shiftTestLinkedList).shift()).toThrow("Cannot shift nodes in a linked list less than two nodes in length");
+    })
+    let secondNode = new Node(810);
+    shiftTestLinkedList.push(secondNode);
+    shiftTestLinkedList.shift();
+    it("should move the head to the second node in the linked list", function(){
+      expect(shiftTestLinkedList.head).toStrictEqual(secondNode);
+    })
+    it("should properly report the length of a linked list once it has been shifted", function(){
+      expect(shiftTestLinkedList.length).toEqual(1);
+    })
+  })
 })
