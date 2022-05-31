@@ -80,7 +80,6 @@ describe("selectionSort", function(){
     expect(() => selectionSort(true)).toThrow('The input must be an array.');
   })
 
-  // Need to finish these tests for TDD for this function.
   describe("mergeSort", function(){
     let bigBackwardsArray = new Array(100000);
     for (let i = 0; i < 100000; i++) {
@@ -238,6 +237,28 @@ describe("selectionSort", function(){
       twoNodeLinkedList.push(firstNode);
       twoNodeLinkedList.push(secondNode);
       expect(twoNodeLinkedList.length).toBe(2);
+    })
+    it("should be able to remove a node from the end of a singly linked list", function(){
+      let firstNode = new Node(586);
+      let secondNode = new Node(810);
+      let thirdNode = new Node(313);
+      let popTestLinkedList = new SinglyLinkedList();
+      popTestLinkedList.push(firstNode);
+      popTestLinkedList.push(secondNode);
+      popTestLinkedList.push(thirdNode);
+      popTestLinkedList.pop();
+      expect(popTestLinkedList.tail).toStrictEqual(secondNode);
+    })
+    it("should be able to keep track of the length of the linked list each time a node is removed", function(){
+      let firstNode = new Node(586);
+      let secondNode = new Node(810);
+      let thirdNode = new Node(313);
+      let popTestLinkedList = new SinglyLinkedList();
+      popTestLinkedList.push(firstNode);
+      popTestLinkedList.push(secondNode);
+      popTestLinkedList.push(thirdNode);
+      popTestLinkedList.pop();
+      expect(popTestLinkedList.length).toEqual(2);
     })
   })
 })
