@@ -13,6 +13,9 @@ class SinglyLinkedList {
   }
 
   push(node) {
+    if (node === undefined) {
+      throw "Please input a node to add to the singly linked list";
+    }
     if(!this.length) {
       this.head = node;
       this.tail = this.head;

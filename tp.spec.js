@@ -259,12 +259,17 @@ describe("selectionSort", function(){
       popTestLinkedList.pop();
       expect(popTestLinkedList.tail).toEqual(secondNode);
       expect(popTestLinkedList.length).toBe(2);
-      popTestLinkedList.pop();
-      popTestLinkedList.pop();
-      expect(popTestLinkedList.length).toBe(0);
-      expect(popTestLinkedList.tail).toEqual(null);
     })
-    // ADD TEST TO ADDRESS THE VALUE THAT HAS BEEN POPPED.
+    it("should be able to return the node popped from its most recent invocation", function(){
+      let firstNode = new Node(586);
+      let popTestLinkedList = new SinglyLinkedList();
+      popTestLinkedList.push(firstNode);
+      expect(popTestLinkedList.pop()).toEqual(firstNode);
+    })
+    it("should throw an error if no input is passed in to the function", function(){
+      let popTestLinkedList = new SinglyLinkedList();
+      expect(() => popTestLinkedList.push()).toThrow("Please input a node to add to the singly linked list");
+    })
   })
 
   describe("SinglyLinkedList - shift", function(){
