@@ -10,6 +10,7 @@ class SinglyLinkedList {
     this.head = null;
     this.length = 0;
     this.tail = null;
+    // REMOVE PREVTAIL FROM ALL CODE VIA REFACTOR AND MODIFY THE TESTS ACCORDINGLY.
     this.prevTail = null;
   }
 
@@ -50,8 +51,11 @@ class SinglyLinkedList {
     }
     let currentHead = this.head;
     this.head = currentHead.next;
-    currentHead = null;
     this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return currentHead;
   }
 }
 

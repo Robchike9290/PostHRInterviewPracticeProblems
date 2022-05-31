@@ -265,6 +265,7 @@ describe("selectionSort", function(){
       expect(popTestLinkedList.length).toEqual(0);
       expect(popTestLinkedList.tail).toStrictEqual(null);
     })
+    // ADD TEST TO ADDRESS THE VALUE THAT HAS BEEN POPPED.
   })
 
   describe("SinglyLinked=List - shift", function(){
@@ -286,5 +287,6 @@ describe("selectionSort", function(){
     it("should properly report the length of a linked list once it has been shifted", function(){
       expect(shiftTestLinkedList.length).toEqual(1);
     })
+    // ADD IN TEST TO ADDRESS THE RETURNING OF THE VALUE THE HAS BEEN SHIFTED
   })
 })
