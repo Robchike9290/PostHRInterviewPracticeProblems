@@ -10,44 +10,49 @@ class SinglyLinkedList {
     this.head = null;
     this.length = 0;
     this.tail = null;
-    // REMOVE PREVTAIL FROM ALL CODE VIA REFACTOR AND MODIFY THE TESTS ACCORDINGLY.
-    this.prevTail = null;
   }
 
   push(node) {
     if(!this.length) {
       this.head = node;
-      this.tail = node;
+      this.tail = this.head;
     } else {
-      this.prevTail = this.tail;
-      this.prevTail.next = node;
+      this.tail.next = node;
       this.tail = node;
     }
+
     this.length++;
+    return this;
   }
 
   pop() {
-    let currentNode = this.head;
-    let newTail;
-
-    while (currentNode.next) {
-      newTail = currentNode;
-      currentNode = currentNode.next;
-    }
-
-    currentNode.next = null;
-    this.tail = newTail;
-    this.length--;
-
     if (this.length === 0) {
-      this.tail = null;
-      this.head = null;
+      return null;
+    } else {
+      let currentNode = this.head;
+      let newTail = currentNode;
+
+      while (currentNode.next) {
+        newTail = currentNode;
+        currentNode = currentNode.next;
+      }
+
+      this.tail = newTail;
+      newTail.next = null;
+      this.length--;
+
+      if (this.length === 0) {
+        this.tail = null;
+        this.head = null;
+      }
+
+      return currentNode;
     }
   }
 
   shift() {
-    if (this.head === null || this.head.next === null) {
-      throw "Cannot shift nodes in a linked list less than two nodes in length";
+    if (this.length === 0) {
+      return null;
     }
     let currentHead = this.head;
     this.head = currentHead.next;
@@ -56,6 +61,10 @@ class SinglyLinkedList {
       this.tail = null;
     }
     return currentHead;
+  }
+
+  unshift() {
+
   }
 }
 

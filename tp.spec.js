@@ -210,7 +210,6 @@ describe("selectionSort", function(){
       expect(emptySinglyLinkedList.head).toEqual(null);
       expect(emptySinglyLinkedList.length).toEqual(0);
       expect(emptySinglyLinkedList.tail).toEqual(null);
-      expect(emptySinglyLinkedList.prevTail).toEqual(null);
     })
     it("should be able to create a new node on an empty instance with the head and tail assigned to that node", function(){
       let firstNode = new Node(104);
@@ -268,25 +267,27 @@ describe("selectionSort", function(){
     // ADD TEST TO ADDRESS THE VALUE THAT HAS BEEN POPPED.
   })
 
-  describe("SinglyLinked=List - shift", function(){
-    let shiftTestLinkedList = new SinglyLinkedList();
-    it("should throw an error if there are no nodes in the linked list", function(){
-      expect(() => (shiftTestLinkedList).shift()).toThrow("Cannot shift nodes in a linked list less than two nodes in length");
+  describe("SinglyLinkedList - shift", function(){
+    let emptyShiftTestLinkedList = new SinglyLinkedList();
+    it("should return null if there are no nodes in the linked list", function(){
+      expect(emptyShiftTestLinkedList.shift()).toBe(null);
     })
     let firstNode = new Node(586);
-    shiftTestLinkedList.push(firstNode);
-    it("should throw an error if there is one node in the linked list", function(){
-      expect(() => (shiftTestLinkedList).shift()).toThrow("Cannot shift nodes in a linked list less than two nodes in length");
-    })
     let secondNode = new Node(810);
-    shiftTestLinkedList.push(secondNode);
-    shiftTestLinkedList.shift();
+    let thirdNode = new Node(248);
+    let nonemptyShiftTestLinkedList = new SinglyLinkedList();
+    nonemptyShiftTestLinkedList.push(firstNode);
+    nonemptyShiftTestLinkedList.push(secondNode);
+    nonemptyShiftTestLinkedList.push(thirdNode);
+    nonemptyShiftTestLinkedList.shift();
     it("should move the head to the second node in the linked list", function(){
-      expect(shiftTestLinkedList.head).toStrictEqual(secondNode);
+      expect(nonemptyShiftTestLinkedList.head).toStrictEqual(secondNode);
     })
     it("should properly report the length of a linked list once it has been shifted", function(){
-      expect(shiftTestLinkedList.length).toEqual(1);
+      expect(nonemptyShiftTestLinkedList.length).toEqual(2);
     })
-    // ADD IN TEST TO ADDRESS THE RETURNING OF THE VALUE THE HAS BEEN SHIFTED
+    it("should return the popped node at completion of the function\'s execution", function(){
+      expect(nonemptyShiftTestLinkedList.shift()).toEqual(secondNode);
+    })
   })
 })
