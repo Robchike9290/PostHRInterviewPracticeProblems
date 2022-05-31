@@ -27,10 +27,21 @@ class SinglyLinkedList {
 
   pop() {
     let currentNode = this.head;
-    while (currentNode.next.next !== null) currentNode = currentNode.next;
+    let newTail;
+
+    while (currentNode.next) {
+      newTail = currentNode;
+      currentNode = currentNode.next;
+    }
+
     currentNode.next = null;
-    this.tail = currentNode;
+    this.tail = newTail;
     this.length--;
+
+    if (this.length === 0) {
+      this.tail = null;
+      this.head = null;
+    }
   }
 }
 

@@ -258,7 +258,12 @@ describe("selectionSort", function(){
       popTestLinkedList.push(secondNode);
       popTestLinkedList.push(thirdNode);
       popTestLinkedList.pop();
+      expect(popTestLinkedList.tail).toStrictEqual(secondNode);
       expect(popTestLinkedList.length).toEqual(2);
+      popTestLinkedList.pop();
+      popTestLinkedList.pop();
+      expect(popTestLinkedList.length).toEqual(0);
+      expect(popTestLinkedList.tail).toStrictEqual(null);
     })
   })
 })
